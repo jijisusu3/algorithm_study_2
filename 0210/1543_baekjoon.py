@@ -1,10 +1,6 @@
-text = input()
-word = input()
-cnt = 0
-
 '''
-while len(word) < len(text):  
-    if text[0:len(word)] == word: 
+while len(word) < len(text):
+    if text[0:len(word)] == word:
         cnt += 1
         for i in text:
             a = list(i)
@@ -12,10 +8,13 @@ while len(word) < len(text):
             b = list(j)
         c = a - b
         text = map(str, c)
-        
+
         실패...
 '''
 
+text = input()
+word = input()
+cnt = 0
 i = 0
 while len(text) - len(word) >= i:
     if text[i:i+len(word)] == word:
