@@ -23,7 +23,6 @@ for i in range(8):
             for k in arr:
                 print(k)
 
-
 # 10972 다음순열
 
 T = int(input())
