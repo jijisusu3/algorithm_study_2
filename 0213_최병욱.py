@@ -55,7 +55,6 @@ for val in lst:
 #         print(*ans[i+1])
 #         break
 # else:
-
 #     print(-1)
 # 메모리 초과
 
