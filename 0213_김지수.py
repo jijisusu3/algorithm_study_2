@@ -58,3 +58,15 @@ for _ in range(n):
     result = int(sys.stdin.readline())
     print(go(result))
 
+
+# SWEA(1208): Flatten
+
+for i in range(1, 11):
+    num = int(input())
+    lst = list(map(int, input().split()))
+    for _ in range(num):
+        lst = sorted(lst)
+        lst[-1] = lst[-1] - 1
+        lst[0] = lst[0] + 1
+    result = max(lst) - min(lst)
+    print('#{0} {1}'.format(i, result))
