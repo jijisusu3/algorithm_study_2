@@ -44,25 +44,31 @@ print(max_v)
 
 # 2차원 배열 달팽이 채우기
 
-import sys; sys.stdin = open('2798.txt', 'r')
+dr = [0, 1, 0, -1]
+dc = [1, 0, -1, 0]
 
-n, m = map(int, input().split())
-num = list(map(int, input().split()))
-len_n = len(num)
-lst = []
+snail = [[0]*m for _ in range(n)]
+r = c = 0
+dist = 0 # 0:우, 1:하, 2:좌, 3:상 (dr,dc의 인덱스 역할)
 
-for i in range(n-2):
-    for j in range(i+1, n-1):
-        for k in range(j+1, n):
-            if num[i] + num[j] + num[k] <= m:
-                lst.append(num[i] + num[j] + num[k])
+for i in range(n*m, 0, -1):
+    snail[r][c] = i
+    r += dr[dist]
+    c += dc[dist]
 
-max_v = 0
-for i in lst:
-    if i >= max_v:
-        max_v = i
+    if r < 0 or c < 0 or r >= n or c >= m or snail[r][c] != 0:
+        # 실행취소
+        r -= dr[dist]
+        c -= dc[dist]
+        # dist
+        dist = (dist + 1) % 4
+        # 다시 진행
+        r += dr[dist]
+        c += dc[dist]
 
-print(max_v)
+for i in snail:
+    print(*i)
+print()
 
 # ===============================================================
 
