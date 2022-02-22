@@ -3,10 +3,9 @@ arr = [ int(input()) for _ in range(N)]
 stack = [ n for n in range(1,N+1)]
 result = []
 
-i = top = -1
+i = top = 0
 result.append('+')
 while True:
-
     if arr[i] == stack[top]:
         result.append('-')
         stack.pop(top)
