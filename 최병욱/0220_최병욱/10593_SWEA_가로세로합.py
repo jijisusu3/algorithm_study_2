@@ -6,7 +6,7 @@ for test_case in range(1, T+1):
     N = int(input())
     arr = [list(map(int, input().split())) for _ in range(N)]
     max_num = 0
-    di = [0, 1, 0, -1]
+    di = [0, 1, 0, -1]  # 우 하 좌 상
     dj = [1, 0, -1, 0]
     for i in range(N):
         for j in range(N):
@@ -14,7 +14,6 @@ for test_case in range(1, T+1):
             for k in range(4):
                 ni = i
                 nj = j
-
                 while 0 <= ni < N and 0 <= nj < N:
                     total += arr[ni][nj]
                     ni += di[k]

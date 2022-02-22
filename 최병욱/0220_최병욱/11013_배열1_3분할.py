@@ -19,7 +19,7 @@ for test_case in range(1, T+1):
             while k < N + 3:
                 if copy_num[k] != -11:
                     num.append(copy_num[k])
-                else:
+                else: # -11 벽을 만났을때
                     split_num.append(num)
                     num = []
                 k += 1

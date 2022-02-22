@@ -10,10 +10,10 @@ for test_case in range(1, T+1):
     xys = []
     for pos in pos_lst:
         r, c, length = pos[0], pos[1], pos[2]
-        for rl in range(length):
+        for rl in range(length): # 0 > 1 > 2
             for rc in range(length):
-                nr = r + rl
-                nc = c + rc
+                nr = r + rl # N
+                nc = c + rc # N
                 if 0 <= nr < N and 0 <= nc < N:
                     if [nr, nc] not in xys:
                         xys.append([nr, nc])

@@ -32,7 +32,6 @@ def area(N, arr):
                 res = max_S - min_S
     return res
 
-
 T = int(input())
 for test_case in range(1, T+1):
     N = int(input())
