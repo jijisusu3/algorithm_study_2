@@ -3,7 +3,7 @@ arr = [ int(input()) for _ in range(N)]
 stack = [ n for n in range(1,N+1)]
 result = []
 
-i = top = 0
+i = top = -1
 result.append('+')
 while True:
 
