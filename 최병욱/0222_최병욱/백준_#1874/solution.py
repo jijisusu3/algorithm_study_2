@@ -5,6 +5,9 @@ N = int(input())
 S =[0] + list(range(1, N+1))
 res = []
 top = 0
+# S = [0, 1, 2, 3]
+#              top
+# 6(S[top]) -> n = 3 -> n = 8
 for _ in range(N):
     n = int(input())
     cnt = 0

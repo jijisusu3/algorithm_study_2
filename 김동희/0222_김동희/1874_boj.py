@@ -6,7 +6,6 @@ result = []
 i = top = 0
 result.append('+')
 while True:
-
     if arr[i] == stack[top]:
         result.append('-')
         stack.pop(top)
