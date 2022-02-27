@@ -13,6 +13,9 @@ for tc in range(1, T + 1):
         while i > arr[0] or arr == []:
             cnt -= 1
             arr.pop(0)
+        if cnt < 0:
+            a = 'Impossible'
+            break
 
         if i % M == 0 and i != 0:
             cnt += K
@@ -24,8 +27,14 @@ for tc in range(1, T + 1):
             else:
                 cnt -= 1
                 arr.pop(0)
-    if arr == []:
+
+    if arr == [] and cnt >= 0:
         a = 'Possible'
+    elif len(arr) != 0:
+        if len(arr) > cnt:
+            a = 'Impossible'
+        elif len(arr) <= cnt:
+            a = 'Possible'
 
     print('#{} {}'.format(tc, a))
 
