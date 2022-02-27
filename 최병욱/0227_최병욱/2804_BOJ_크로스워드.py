@@ -30,7 +30,6 @@ sys.stdin = open('2804_BOJ.txt', 'r')
 def find(A, B):
     N = len(A)
     M = len(B)
-    idx_i = idx_j = 0
     for i in range(N):
         word = A[i]
         for j in range(M):
