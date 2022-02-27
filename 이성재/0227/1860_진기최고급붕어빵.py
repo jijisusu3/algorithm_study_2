@@ -6,9 +6,10 @@ for tc in range(1, T + 1):
     arr = list(map(int, input().split()))
 
     arr.sort()
-    a = 'Possible'  # 아래에서 'Impossible'만 찾기 위해서
+    a = ''  # 아래에서 'Impossible'만 찾기 위해서
     cnt = 0   # 빵 개수
     for i in range(arr[-1] + 1):
+
         while i > arr[0] or arr == []:
             cnt -= 1
             arr.pop(0)
@@ -23,6 +24,8 @@ for tc in range(1, T + 1):
             else:
                 cnt -= 1
                 arr.pop(0)
+    if arr == []:
+        a = 'Possible'
 
     print('#{} {}'.format(tc, a))
 
