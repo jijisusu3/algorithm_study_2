@@ -15,4 +15,9 @@ for i in range(6):
     else:
         arr_num[3] += 1
 
-print(arr_num)
+while arr_num[arr[0][0] - 1] != 1 or arr_num[arr[5][0] - 1] != 1:
+    arr.append(arr.pop(0))
+
+area = arr[0][1] * arr[5][1] - arr[2][1] * arr[3][1]
+
+print(area * K)
