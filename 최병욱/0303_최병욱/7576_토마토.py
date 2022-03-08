@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+sys.stdin = open('7576.txt', 'r')
 
 M, N = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
@@ -18,7 +18,8 @@ def BFS(r, c):
                 if arr[ni][nj] == -1:
                     continue
                 Q.append((ni, nj))
-                visited[ni][nj] = visited[i][j] + 1
+                if visited[ni][nj] == 0 or visited[i][j] + 1 < visited[ni][nj]:
+                    visited[ni][nj] = visited[i][j] + 1
 
 def find(N, M, visited):
     max_cnt = 0
@@ -35,9 +36,9 @@ for i in range(N):
     for j in range(M):
         if arr[i][j] == 1:
             start.append((i, j))
-while start:
-    BFS(start[0][0], start[0][1])
-    start.pop(0)
+for i in start:
+    BFS(i[0], i[1])
+
 # print(find(N, M, visited))
 for i in range(N):
     for j in range(M):
