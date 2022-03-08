@@ -7,9 +7,10 @@ visited = [[0]*M for _ in range(N)]
 
 di = [0, 1, 0, -1]
 dj = [1, 0, -1, 0]
-def BFS(r, c):
-    Q = [(r, c)]
-    visited[r][c] = 1
+def BFS(start):
+    Q = start
+    for s1, s2 in Q:
+        visited[s1][s2] = 1
     while Q:
         i, j = Q.pop(0)
         for k in range(4):
@@ -36,10 +37,16 @@ for i in range(N):
     for j in range(M):
         if arr[i][j] == 1:
             start.append((i, j))
+<<<<<<< HEAD
 for i in start:
     BFS(i[0], i[1])
 
 # print(find(N, M, visited))
+=======
+BFS(start)
+
+print(find(N, M, visited))
+>>>>>>> f02bad19d9db6e58cffd4296737980c3620f57d7
 for i in range(N):
     for j in range(M):
         print(visited[i][j], end = ' ')
