@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+sys.stdin = open('1759.txt', 'r')
 
 L, C = map(int, input().split())
 chars = list(input().split())
@@ -8,6 +8,7 @@ N = len(chars)
 bits = [0]*N
 
 def comb(k, n, L):
+    global cnt
     if k == n:
         if sum(bits) == L:
             password = ''
@@ -29,6 +30,7 @@ def comb(k, n, L):
         comb(k + 1, n, L)
 
 ans = []
+cnt = 0
 comb(0, N, L)
 ans.sort()
 for a in ans:

@@ -15,7 +15,6 @@ def comb(k, n, lst):
         bits[k] = 1
         comb(k + 1, n, lst)
 
-
 while True:
     nums = list(map(int, input().split()))
     k = nums.pop(0)

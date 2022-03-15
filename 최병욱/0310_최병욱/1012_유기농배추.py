@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt', 'r')
+sys.stdin = open('1012.txt', 'r')
 
 dr = [0, 1, 0, -1]
 dc = [1, 0, -1, 0]
@@ -21,6 +21,11 @@ for test_case in range(1, T+1):
     for _ in range(K):
         j, i = map(int, input().split())
         arr[i][j] = 1
+    # for i in range(N):
+    #     for j in range(M):
+    #         print(arr[i][j], end = ' ')
+    #     print()
+    # print('---------------------')
     cnt = 0
     for r in range(N):
         for c in range(M):
