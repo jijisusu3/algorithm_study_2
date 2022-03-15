@@ -1,0 +1,1 @@
+import sys; sys.stdin = open('1759.txt')
