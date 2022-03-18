@@ -15,7 +15,7 @@ def bfs(row, col):
         for i in range(4):
             nr = sr + d[i][0]
             nc = sc + d[i][1]
-            if 0 <= nr < N and 0 <= nc < N:
+            if 0 <= nr < N and 0 <= nc < M:
                 if island[nr][nc] == 'L' and visited[nr][nc] == 0:
                     Q.append((nr, nc))
                     visited[nr][nc] = visited[sr][sc] + 1 # 몇시간 왔나 세기
@@ -28,6 +28,15 @@ result = []
 for r in range(N):
     for c in range(M):
         if island[r][c] == 'L':
-            visited = [[0] * M for _ in range(N)] # 매번 출발할 때마다 초기화~
-            result.append(bfs(r, c))
+            count = 0
+            for k in range(4):
+                ni, nj = r + d[k][0], c + d[k][1]
+                if 0 <= ni < N and 0 <= nj < M and island[ni][nj] == 'L':
+                    count += 1
+            if count > 2:
+                continue
+            else:
+                visited = [[0] * M for _ in range(N)]  # 매번 출발할 때마다 초기화~
+                result.append(bfs(r, c))
+
 print(max(result))
