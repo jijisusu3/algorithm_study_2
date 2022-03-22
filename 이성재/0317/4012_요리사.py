@@ -8,9 +8,9 @@ def synergy(x):
                 cnt += arr[i][j]
     return cnt
 
-def dfs(x, k):
+def dfs(x):
     global ans
-    if x == N //2:
+    if x == N // 2:
         A = []
         B = []
         for i in range(N):
@@ -22,10 +22,10 @@ def dfs(x, k):
             ans = abs(synergy(A) - synergy(B))
         return
 
-    for i in range(k, N):
-        if not visit[i]:
+    for i in range(N):
+        if visit[i] == 0:
             visit[i] = 1
-            dfs(x + 1, i + 1)
+            dfs(x + 1)
             visit[i] = 0
 
 T = int(input())
@@ -35,5 +35,5 @@ for tc in range(1, T + 1):
     ans = 9999999999
     visit = [0 for _ in range(N)]
 
-    dfs(0, 0)
+    dfs(0)
     print('#{} {}'.format(tc, ans))

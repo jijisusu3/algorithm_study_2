@@ -20,6 +20,7 @@ arr = [list(map(int, input().split())) for _ in range(M)]
 cnt = 1
 arr[r][c] = 2
 while 1:
+    dir = d
     for i in range(4):
         a = 0
         dir = direction(d)
