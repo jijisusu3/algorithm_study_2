@@ -43,7 +43,6 @@ while Q:
 
             else:
                 turn_time += 1
-
                 if turn_time == 4:
                     nr = r - dr[now_direction]
                     nc = c - dc[now_direction]
@@ -51,5 +50,13 @@ while Q:
                     if arr[nr][nc] == 0:
                         Q.append((nr, nc, now_direction))
                         break
+
+                    elif arr[nr][nc] == 1:
+                        break
+
+                else:
+                    continue
+            arr[nr][nc] = 1
+            result += 1
 
 print(result)
