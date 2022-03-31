@@ -1,4 +1,4 @@
-import sys; sys.stdin = open('14503.txt')   # 런타임..
+import sys; sys.stdin = open('14503.txt')
 
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
@@ -15,7 +15,7 @@ def direction(d):
 
 N, M = map(int, input().split())
 r, c, d = map(int, input().split())
-arr = [list(map(int, input().split())) for _ in range(M)]
+arr = [list(map(int, input().split())) for _ in range(N)]
 
 cnt = 1
 arr[r][c] = 2
@@ -23,7 +23,7 @@ while 1:
     dir = d
     for i in range(4):
         a = 0
-        dir = direction(d)
+        dir = direction(dir)
         nr = r + dx[dir]
         nc = c + dy[dir]
         if 0 <= nr < N and 0 <= nc < M and arr[nr][nc] == 0:
