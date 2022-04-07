@@ -1,5 +1,8 @@
 import sys; sys.stdin = open('123.txt')
 
+# 가능한 7개 찾고, 7개 붙어 있는지 따로 확인한 이유
+# 한곳 잡고 7칸 이동해서 조건 맞는지 확인하려 했지만 첫칸부터 다 찾아야하고 중복 떨궈줘야되서 사실상 다 찾아야함
+
 dx = [1,-1,0,0]
 dy = [0,0,1,-1]
 
@@ -28,7 +31,7 @@ def dfs(cnt, idx, cnt_y):
         return
         
     if cnt == 7:
-        ctn = 1
+        ctn = 1  # 매번 초기화(ctn, visit)
         visit = [[0] * 5 for _ in range(5)]
         nx, ny = p[0] // 5, p[0] % 5
         visit[nx][ny] = 1       # 시작위치 먼저 표시
