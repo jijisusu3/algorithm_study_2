@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 문제1. -->
+    <!-- 
+      JS
+      1. 버튼을 선택해서
+      2. 이벤트를 등록하고
+        3. 변화시킬 DOM을 선택해서
+        4. 값, 속성 등을 변화시킨다.
+     -->
+     <!-- 
+       Vue
+       1. 데이터를 변환시키는 메서드를 만든다.
+      -->
+    <!-- <button v-on:click="addCount"> -->
+    <!-- <button @click="count++">+</button> 이렇게만 써도 된다.-->
+    <!-- 위와 같이 디렉티브의 값은 모두 자바스크립트 코드임
+    일반적으로 이벤트를 관리할 때 많은 코드를 작성하게 되므로
+    이를 위해 메서드를 넣는 형식으로 작성함.
+    -->
+    <button @click="addCount">+</button>
+    <p>{{ count }}</p>
+    <!-- 문제2.  -->
+    <div v-for="todo in todos" :key="todo.id">{{ todo.title }}
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const URL = 'https://jsonplaceholder.typicode.com/todos/'
+    const app = new Vue({
+      el: '#app',
+      // Vue 에서 뭔가를 만들 때 데이터를 제일먼저 생각하자!!
+      // 1. Data가 변하면 DOM이 변한다. => 이벤트/메서드를 통해 바꿈(v-model(사용자 input)도 있다!)
+      // Data가 바뀌면 computed도 바뀜
+      // watch를 통해 data를 볼 수 있다.
+
+      // 2. DOM이 변할 때 Vue instance에서 DOM 가기전에 '라이프사이클'
+      // 라이프사이클 => 어떤시점에 실행할 함수 정의(created, mounted, updated 등등)
+
+      // 3. 랜더링(v-if / v-for / v-show / v-text / v-html 등등)
+
+      data: {
+        count: 0,
+        todos: []
+      },
+      methods: {
+        addCount() {
+          // 데이터 접근은 this / why? 디렉티브에서 쓰는게 아니면 this로 접근!
+          // 여기서 this는 app
+          this.count++
+        },
+      },
+      created: function() {
+        // Vue => DOM 마운트 되기 전에 실행!
+        axios.get(URL)
+          .then(response => this.todos = response.data)
+            console.log(response)
+            this.todos = response.data
+      },
+      mounted: function() {
+        console.log('mount')
+      }
+    })
+  </script>
+</body>
+</html>

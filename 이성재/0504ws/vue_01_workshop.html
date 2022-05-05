@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lunch & Lotto</title>
+  <style>
+    .ball {
+      display: inline-block;
+      width: 100px;
+      height: 100px;
+      background-color: gold;
+      border-radius: 50px;
+      line-height: 100px;
+      text-align: center;
+      font-weight: bolder;
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>점심메뉴</h2>
+    <button @click="lunchSelector">Pick One</button>
+    <p>{{ lunchSelect }}</p>
+    <hr>
+
+    <li v-for="menu in recommendationLunch" :key="menu">{{ menu }}</li>
+
+    <h2>로또</h2>
+    <button @click="lottoSelector">Get Lucky Numbers</button>
+    <p>{{ lottoSelects }}</p>
+    <div class="ball" v-for="num in lottoSelects">{{ num }}</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        recommendationLunch: ['불고기', '김치찌개', '햄버거', '김치볶음밥', '순대국', '국밥'],
+        lunchSelect: '',
+        lottoNum: _.range(1, 46),
+        lottoSelects: [],
+      },
+      methods: {
+        lunchSelector() {
+          this.lunchSelect = _.sample(this.recommendationLunch)
+        },
+        lottoSelector() {
+          this.lottoSelects = _.sampleSize(this.lottoNum, 6)
+        },
+      },
+    })
+  </script>
+</body>
+
+</html>
